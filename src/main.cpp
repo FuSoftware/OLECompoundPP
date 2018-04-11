@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "ole/oleutils.h"
+#include "ole/oleheader.h"
 
 void testHeader(std::string path){
     std::vector<unsigned char> data = OLE::readFile(path);
@@ -12,6 +13,15 @@ void testHeader(std::string path){
     //Tests the revision number and the version number of the file (62 and 03 respectively)
     std::cout << "62 : " << OLE::toInt(OLE::split(header_data,24,2)) << std::endl;
     std::cout << "03 : " << OLE::toInt(OLE::split(header_data,26,2)) << std::endl;
+
+    //Properly tests the header
+    OLE::OLEHeader *header = new OLE::OLEHeader(header_data);
+    //Tests the revision number and the version number of the file (62 and 03 respectively)
+    std::cout << "HE : " << sizeof(*header) << std::endl;
+    std::cout << "62 : " << header->getRevision() << std::endl;
+    std::cout << "03 : " << header->getVersion() << std::endl;
+
+    delete header;
 }
 
 

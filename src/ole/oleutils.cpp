@@ -21,6 +21,14 @@ std::vector<unsigned char> OLE::split(std::vector<unsigned char> data, int offse
     return result;
 }
 
+std::vector<unsigned char> OLE::join(std::vector<unsigned char> v1, std::vector<unsigned char> v2)
+{
+    std::vector<unsigned char> v(v1.size() + v2.size());
+    v.insert(v.end(), v1.begin(), v1.end());
+    v.insert(v.end(), v2.begin(), v2.end());
+    return v;
+}
+
 int OLE::toInt(std::vector<unsigned char> data)
 {
     int result = 0;
@@ -32,6 +40,12 @@ int OLE::toInt(std::vector<unsigned char> data)
     }
 
     return result;
+}
+
+std::string OLE::toString(std::vector<unsigned char> data)
+{
+    std::string s(data.begin(), data.end());
+    return s;
 }
 
 

@@ -1,11 +1,16 @@
 #ifndef OLEMSAT_H
 #define OLEMSAT_H
 
-
-class OLEMSAT
+namespace OLE
 {
-public:
-    OLEMSAT();
+struct Sector {
 };
+    class OLEMSAT
+    {
+    public:
+        OLEMSAT();
+    };
+
+}
 
 #endif // OLEMSAT_H
