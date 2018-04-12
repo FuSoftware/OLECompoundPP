@@ -23,6 +23,13 @@ public:
     int getSectorSize() const;
     int getShortSectorSize() const;
 
+    std::vector<unsigned char> getMSAT() const;
+
+    bool isMSATinSAT() const;
+    int getFirstMSATSecID() const;
+
+    int getSectorOffset(int sec_id) const;
+
 private:
     std::string id; //0 : 8 bytes (DO CF 11 E0 A1 B1 1A E1)
     std::string uid; //8 : 16 bytes, usually all 0s

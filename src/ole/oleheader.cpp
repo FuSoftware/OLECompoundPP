@@ -69,3 +69,23 @@ int OLE::OLEHeader::getShortSectorSize() const
     return this->short_sec_size;
 }
 
+std::vector<unsigned char> OLE::OLEHeader::getMSAT() const
+{
+    return this->msat;
+}
+
+bool OLE::OLEHeader::isMSATinSAT() const
+{
+    return this->first_master_sector_id != -2;
+}
+
+int OLE::OLEHeader::getFirstMSATSecID() const
+{
+    return this->first_master_sector_id;
+}
+
+int OLE::OLEHeader::getSectorOffset(int sec_id) const
+{
+    return 512 + sec_id * this->sec_size;
+}
+

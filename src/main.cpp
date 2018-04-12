@@ -2,8 +2,17 @@
 #include <vector>
 #include "ole/oleutils.h"
 #include "ole/oleheader.h"
+#include "ole/olemsat.h"
+#include "ole/olefile.h"
 
-void testHeader(std::string path){
+void testFile(std::string path)
+{
+    OLE::OLEFile *f = new OLE::OLEFile(path);
+    std::cout << f->getHeader()->getRevision() << " : " <<  f->getHeader()->getVersion() << std::endl;
+}
+
+void testHeader(std::string path)
+{
     std::vector<unsigned char> data = OLE::readFile(path);
     std::vector<unsigned char> header_data = OLE::split(data, 0, 512, false);
 
@@ -17,27 +26,16 @@ void testHeader(std::string path){
     //Properly tests the header
     OLE::OLEHeader *header = new OLE::OLEHeader(header_data);
     //Tests the revision number and the version number of the file (62 and 03 respectively)
-    std::cout << "HE : " << sizeof(*header) << std::endl;
+    std::cout << "HE : " << sizeof(*header) << " bytes" << std::endl;
     std::cout << "62 : " << header->getRevision() << std::endl;
     std::cout << "03 : " << header->getVersion() << std::endl;
 
     delete header;
 }
 
-
-void testInt(){
-    std::vector<unsigned char> s {0xE8, 0x09, 0x96, 0x05};
-
-    std::vector<unsigned char> s1 = OLE::split(s, 0, 2, false);
-    std::vector<unsigned char> s2 = OLE::split(s, 2, 2, false);
-
-    std::cout << "2536 : " << OLE::toInt(s1) << std::endl;
-    std::cout << "1430 : " << OLE::toInt(s2) << std::endl;
-}
-
 int main()
 {
-    testHeader("E:\\Doc1.doc");
+    testFile("E:\\Prog\\Data\\Syno\\C_DRAIN.grf");
 
     return 0;
 }
