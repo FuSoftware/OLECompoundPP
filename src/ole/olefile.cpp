@@ -31,6 +31,11 @@ OLE::OLEHeader *OLE::OLEFile::getHeader() const
     return this->header;
 }
 
+OLE::OLEMSAT *OLE::OLEFile::getMSAT() const
+{
+    return this->msat;
+}
+
 std::vector<unsigned char> OLE::OLEFile::getSectorFromID(int sec_id)
 {
     return this->getSector(this->getHeader()->getSectorOffset(sec_id));

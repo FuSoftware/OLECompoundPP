@@ -19,6 +19,7 @@ namespace OLE{
 
         void load(std::vector<unsigned char> data);
         OLEHeader *getHeader() const;
+        OLEMSAT *getMSAT() const;
 
         std::vector<unsigned char> getSectorFromID(int sec_id);
         std::vector<unsigned char> getSector(int offset);

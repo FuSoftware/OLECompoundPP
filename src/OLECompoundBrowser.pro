@@ -9,7 +9,8 @@ SOURCES += main.cpp \
     ole/olestream.cpp \
     ole/oleutils.cpp \
     ole/oleheader.cpp \
-    ole/olemsat.cpp
+    ole/olemsat.cpp \
+    ole/olesat.cpp
 
 HEADERS += \
     ole/olestorage.h \
@@ -17,4 +18,5 @@ HEADERS += \
     ole/olestream.h \
     ole/oleutils.h \
     ole/oleheader.h \
-    ole/olemsat.h
+    ole/olemsat.h \
+    ole/olesat.h

@@ -40,3 +40,13 @@ void OLE::OLEMSAT::addSecID(int id)
 {
     this->sec_ids.push_back(id);
 }
+
+int OLE::OLEMSAT::getSecId(int index)
+{
+    return this->getSecIds()[0];
+}
+
+std::vector<int> OLE::OLEMSAT::getSecIds()
+{
+    return this->sec_ids;
+}
