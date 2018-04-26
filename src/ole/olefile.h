@@ -15,21 +15,22 @@ namespace OLE{
     public:
         OLEFile();
         OLEFile(std::string file_path);
-        OLEFile(std::vector<unsigned char> data);
+        OLEFile(std::vector<unsigned char> *data);
 
-        void load(std::vector<unsigned char> data);
+        void load(std::vector<unsigned char> *data);
         OLEHeader *getHeader() const;
         OLEMSAT *getMSAT() const;
 
-        std::vector<unsigned char> getSectorFromID(int sec_id);
-        std::vector<unsigned char> getSector(int offset);
+        std::vector<unsigned char> *getSectorFromID(int sec_id);
+        std::vector<unsigned char> *getSector(int offset);
+        std::vector<unsigned char> *getData();
 
     private:
         OLEStorage *root;
         OLEHeader *header;
         OLEMSAT *msat;
 
-        std::vector<unsigned char> raw_data;
+        std::vector<unsigned char> *raw_data;
     };
 }
 

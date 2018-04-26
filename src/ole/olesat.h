@@ -17,7 +17,7 @@ public:
 private:
     OLEFile *file;
     std::vector<int> sec_ids;
-    std::vector< std::vector<unsigned char> > sectors;
+    std::vector< std::vector<unsigned char>* > sectors;
 };
 
 }

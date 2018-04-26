@@ -15,7 +15,7 @@ void OLE::OLESAT::load(OLE::OLEFile *file)
 
     std::vector<int> msat = this->file->getMSAT()->getSecIds();
 
-    for(int i=0;i<msat.size();i++)
+    for(unsigned int i=0;i<msat.size();i++)
     {
         if(msat[i] < 0) break;
         this->sectors.push_back(file->getSector(msat[i]));
