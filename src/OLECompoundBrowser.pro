@@ -13,7 +13,8 @@ SOURCES += main.cpp \
     fhx/fhxfile.cpp \
     fhx/fhxitem.cpp \
     fhx/fhxparameter.cpp \
-    fhx/fhxparser.cpp
+    fhx/fhxparser.cpp \
+    ole/olesat.cpp
 
 HEADERS += \
     ole/olestorage.h \
@@ -25,4 +26,5 @@ HEADERS += \
     fhx/fhxfile.h \
     fhx/fhxitem.h \
     fhx/fhxparameter.h \
-    fhx/fhxparser.h
+    fhx/fhxparser.h \
+    ole/olesat.h

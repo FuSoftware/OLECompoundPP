@@ -5,14 +5,6 @@
 
 namespace OLE
 {
-    enum SpecialSectorID
-    {
-        SECID_FREE = -1,
-        SECID_EOC = -2,
-        SECID_SAT = -3,
-        SECID_MSAT = -4
-    };
-
     class OLEFile;
 
     class OLEMSAT
@@ -21,6 +13,9 @@ namespace OLE
         OLEMSAT(OLEFile *file);
         void load();
         void addSecID(int id);
+
+        int getSecId(int index);
+        std::vector<int> getSecIds();
 
     private:
         OLEFile *file;

@@ -13,12 +13,12 @@ OLE::OLEMSAT::OLEMSAT(OLEFile *file)
 void OLE::OLEMSAT::load()
 {
     OLEHeader *h = this->file->getHeader();
-    std::vector<unsigned char> data = h->getMSAT();
+    std::vector<unsigned char> *data = h->getMSAT();
 
     //We now that the part from the Header contains 109 SecIDs
     for(int i=0; i<109;i++)
     {
-        int id = OLE::toInt(OLE::split(data,i*4, 4, h->getIsLittleEndian()));
+        unsigned long id = OLE::toULong(data, h->getIsLittleEndian(), i*4);
         this->addSecID(id);
     }
 
@@ -39,4 +39,14 @@ void OLE::OLEMSAT::load()
 void OLE::OLEMSAT::addSecID(int id)
 {
     this->sec_ids.push_back(id);
+}
+
+int OLE::OLEMSAT::getSecId(int index)
+{
+    return this->getSecIds()[0];
+}
+
+std::vector<int> OLE::OLEMSAT::getSecIds()
+{
+    return this->sec_ids;
 }
