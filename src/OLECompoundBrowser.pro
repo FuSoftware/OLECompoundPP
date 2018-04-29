@@ -9,7 +9,11 @@ SOURCES += main.cpp \
     ole/olestream.cpp \
     ole/oleutils.cpp \
     ole/oleheader.cpp \
-    ole/olemsat.cpp
+    ole/olemsat.cpp \
+    fhx/fhxfile.cpp \
+    fhx/fhxitem.cpp \
+    fhx/fhxparameter.cpp \
+    fhx/fhxparser.cpp
 
 HEADERS += \
     ole/olestorage.h \
@@ -17,4 +21,8 @@ HEADERS += \
     ole/olestream.h \
     ole/oleutils.h \
     ole/oleheader.h \
-    ole/olemsat.h
+    ole/olemsat.h \
+    fhx/fhxfile.h \
+    fhx/fhxitem.h \
+    fhx/fhxparameter.h \
+    fhx/fhxparser.h
