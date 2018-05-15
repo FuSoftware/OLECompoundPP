@@ -16,6 +16,7 @@ public:
 protected:
     std::vector<FHXItem*> chilren;
     std::vector<FHXParameter*> parameters;
+    std::vector<FHXParameter*> descriptors;
     FHXItem *parent;
 };
 }
